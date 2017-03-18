@@ -1,0 +1,28 @@
+{
+  "name": "puppybook",
+  "version": "1.0.0",
+  "description": "express-sequalize practice",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "sequelize",
+    "postgress"
+  ],
+  "author": "Tina Heiligers",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "pg": "^6.1.4",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.2"
+  }
+}
