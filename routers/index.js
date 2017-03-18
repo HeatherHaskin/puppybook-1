@@ -13,4 +13,20 @@ router.get('/', function(req, res, next) {
   .catch(next);
 });
 
+router.get('/:id', function(req, res, next) {
+  Puppy.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function(puppy) {
+    if (!puppy) {
+      res.send('No puppy found!')
+    } else {
+      console.log(puppy.greet());
+      res.json(puppy)
+    }
+  })
+  .catch(next);
+});
 
