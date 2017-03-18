@@ -30,3 +30,30 @@ router.get('/:id', function(req, res, next) {
   .catch(next);
 });
 
+router.put('/:id', function(req, res, next) {
+  Puppy.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+    returning: true,
+  })
+  .then(function(thingsUpdateReturns) {
+    console.log("thingsUpdateReturns: " + thingsUpdateReturns);
+    console.log(thingsUpdateReturns[1]);
+    console.log(thingsUpdateReturns[1][0]);
+    return thingsUpdateReturns[1][0];
+  })
+  .then(function(actualUpdatedPuppy) {
+    res.send(actualUpdatedPuppy);
+  })
+  .catch(next);
+});
+
+router.post('/', function(req, res, next) {
+  Puppy.create(req.body)
+  .then(function(puppy) {
+    res.send(puppy);
+  })
+  .catch(next);
+});
+
